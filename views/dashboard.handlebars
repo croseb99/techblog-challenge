@@ -1,0 +1,15 @@
+{{#extend "layouts/main"}}
+  {{#block "body"}}
+    <h1>Your Dashboard</h1>
+    <a href="/dashboard/new">Create New Post</a>
+    <div class="posts">
+      {{#each posts}}
+        <div class="post">
+          <h2><a href="/post/{{this.id}}">{{this.title}}</a></h2>
+          <a href="/dashboard/edit/{{this.id}}">Edit</a>
+          <a href="/post/{{this.id}}/delete">Delete</a>
+        </div>
+      {{/each}}
+    </div>
+  {{/block}}
+{{/extend}}

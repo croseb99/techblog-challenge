@@ -1,0 +1,22 @@
+{{#extend "layouts/main"}}
+  {{#block "body"}}
+    <h1>{{post.title}}</h1>
+    <p>By {{post.User.username}} on {{post.created_at}}</p>
+    <p>{{post.content}}</p>
+
+    <h3>Comments</h3>
+    {{#each post.Comments}}
+      <div class="comment">
+        <p><strong>{{this.User.username}}:</strong>
+          {{this.content}}
+          on
+          {{this.created_at}}</p>
+      </div>
+    {{/each}}
+
+    <form action="/post/{{post.id}}/comment" method="POST">
+      <textarea name="content" required></textarea>
+      <button type="submit">Add Comment</button>
+    </form>
+  {{/block}}
+{{/extend}}

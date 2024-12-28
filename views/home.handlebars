@@ -1,0 +1,13 @@
+{{#extend "layouts/main"}}
+  {{#block "body"}}
+    <h1>Welcome to the Tech Blog!</h1>
+    <div class="posts">
+      {{#each posts}}
+        <div class="post">
+          <h2><a href="/post/{{this.id}}">{{this.title}}</a></h2>
+          <p>By {{this.User.username}} on {{this.created_at}}</p>
+        </div>
+      {{/each}}
+    </div>
+  {{/block}}
+{{/extend}}
